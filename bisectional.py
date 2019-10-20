@@ -9,26 +9,27 @@ def func(x):
     return x * x * x - 0.165 * x * x + 3.993 * 10 ** -4
 
 
-# Prints root of func(x)
-# with error of EPSILON
-def bisection(a, b, tolerance):
-    if func(a) * func(b) >= 0:
+# Prints root of func(x) and each iteration's state
+# Parameters : left side, right side, tolerance and the equation defined as a function
+def bisection(a, b, tolerance, function):
+    if function(a) * function(b) >= 0:
         print("You have not assumed right a and b\n")
         return
 
     c = a
     i = 1;
-    print("Iteration    " + "Left\t\t\t\t" + " Right\t\t\t\t" + "Middle\t\t\t" + "f(Left)\t\t\t" + "f(Right)\t\t\t" + "f(Middle)")
+    print(
+        "Iteration    " + "Left\t\t\t\t" + " Right\t\t\t\t" + "Middle\t\t\t" + "f(Left)\t\t\t" + "f(Right)\t\t\t" + "f(Middle)")
 
     while (b - a) >= tolerance:
 
         # Find middle point
         c = (a + b) / 2
 
-        funca = func(a)
-        funcb = func(b)
-        funcc = func(c)
-        #print("%d\t\t\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t" % (i, a, b, c, funca, funcb, funcc))
+        funca = function(a)
+        funcb = function(b)
+        funcc = function(c)
+
         print("%d\t\t\t" % i, sci_notation(a, sig_fig=4), "\t", sci_notation(b, sig_fig=4), "\t",
               sci_notation(c, sig_fig=3), "\t", sci_notation(funca, sig_fig=4), "\t", sci_notation(funcb, sig_fig=4),
               "\t", sci_notation(funcc, sig_fig=4), "\t")
@@ -58,6 +59,4 @@ def sci_notation(number, sig_fig=2):
 a = 0
 b = 0.11
 es = 0.0001
-bisection(a, b, es)
-
-print()  # 1.0000 * 10^4
+bisection(a, b, es, func)
