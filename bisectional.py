@@ -6,7 +6,7 @@
 # Place your equation at this function.
 # The function is x^3 - x^2 + 2
 def func(x):
-    return x * x - 3
+    return x * x * x - 0.165 * x*x + 3.993 * 10**-4
 
 
 # Prints root of func(x)
@@ -28,7 +28,8 @@ def bisection(a, b, tolerance):
         funca = func(a)
         funcb = func(b)
         funcc = func(c)
-
+        print("%d\t\t\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t" % (i, a, b, c, funca, funcb, funcc))
+        i = i + 1
         # Check if middle point is root
         if funcc == 0.0:
             break
@@ -39,15 +40,14 @@ def bisection(a, b, tolerance):
         else:
             a = c
 
-        print("%d\t\t\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t" % (i, a, b, c, funca, funcb, funcc))
-        i = i + 1
+
 
     print("The root is at : ", "%.8f" % c)
 
 
 # Driver code
 # Initial values assumed
-a = 1
-b = 2
-es = 0.01
+a = 0
+b = 0.11
+es = 0.0001
 bisection(a, b, es)
