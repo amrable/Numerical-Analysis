@@ -19,7 +19,7 @@ def bisection(a, b, tolerance, function):
     c = a
     i = 1;
     print(
-        "Iteration    " + "Left\t\t\t\t" + " Right\t\t\t\t" + "Middle\t\t\t" + "f(Left)\t\t\t" + "f(Right)\t\t\t" + "f(Middle)")
+        "Iteration\t" + " Left\t\t\t" + " Right\t\t\t" + " Middle\t\t\t" + " f(Left)\t\t\t" + " f(Right)\t\t\t" + " f(Middle)")
 
     while (b - a) >= tolerance:
 
@@ -30,7 +30,7 @@ def bisection(a, b, tolerance, function):
         funcb = function(b)
         funcc = function(c)
 
-        print("%d\t\t\t" % i, sci_notation(a, sig_fig=4), "\t", sci_notation(b, sig_fig=4), "\t",
+        print("%d\t\t\t" % i, sci_notation(a, sig_fig=3), "\t", sci_notation(b, sig_fig=3), "\t",
               sci_notation(c, sig_fig=3), "\t", sci_notation(funca, sig_fig=4), "\t", sci_notation(funcb, sig_fig=4),
               "\t", sci_notation(funcc, sig_fig=4), "\t")
         i = i + 1
